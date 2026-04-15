@@ -17,7 +17,7 @@ ifeq ($(OS), Windows_NT)
     LDFLAGS := -lws2_32
     RMDIR   := rmdir /S /Q
     # mkdir on Windows cmd: suppress "already exists" error with 2>nul
-    MKDIR   = if not exist "$(subst /,\,$(@D))" mkdir "$(subst /,\,$(@D))"
+    MKDIR   = mkdir -p $(@D)
 else
     TARGET  := $(BUILDDIR)/cipher_client
     LDFLAGS :=
